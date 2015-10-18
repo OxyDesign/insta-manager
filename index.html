@@ -7,15 +7,28 @@
     <link rel="stylesheet" href="dist/libs/foundation.min.css" />
     <script src="dist/libs/angular.min.js"></script>
     <script src="dist/js/instaManager.min.js"></script>
+    <style type="text/css">
+        label{
+            display:block;
+        }
+    </style>
 </head>
 <body>
-    <div id="app" ng-controller="mainCtrl">
-    <label>
-        User ID : <input type="text" />
-    </label>
-    <label>
-        Token : <input type="text" />
-    </label>
+    <div id="app">
+        <div ng-controller="mainCtrl">
+            <label>
+                User ID : <input type="text" placeholder="id" />
+            </label>
+            <label>
+                Token : <input type="text" placeholder="token" />
+            </label>
+            <button ng-click="load()">Load</button>
+            <div>
+                <div ng-repeat="people in data.data">
+                    {{$index}} - [{{people.id}}] - {{people.full_name}} / <a href="https://instagram.com/{{people.username}}/">{{people.username}}</a>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
