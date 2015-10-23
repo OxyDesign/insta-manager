@@ -23,9 +23,7 @@
                 Token : <input type="text" placeholder="token" ng-model="token" />
             </label>
             <div>
-                <div ng-repeat="people in data">
-                    {{$index}} - [{{people.id}}] - {{people.full_name}} / <a href="https://instagram.com/{{people.username}}/" target="_blank">{{people.username}}</a>
-                </div>
+                <people-elt ng-repeat="people in data" token="{{token}}" userid="{{people.id}}" userindex="{{$index}}" userfullname="{{people.full_name}}" username="{{people.username}}"></people-elt>
             </div>
             <button ng-click="load()" ng-show="!lastPage">Load</button>
         </div>

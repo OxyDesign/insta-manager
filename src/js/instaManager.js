@@ -27,3 +27,28 @@ instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) 
         });
     };
 }]);
+
+instaManager.directive('peopleElt', function(){
+    return {
+        restrict: 'E',
+        scope:{
+            userid:'@',
+            userindex:'@',
+            userfullname:'@',
+            username:'@',
+            token:'@'
+        },
+        controller: ['$scope', '$http', function($scope, $http) {
+            $http.jsonp(
+                'https://api.instagram.com/v1/users/'+$scope.userid+'/relationship?access_token='+$scope.token+'&callback=JSON_CALLBACK'
+            ).then(function (response) {
+                $scope.data = response.data.data;
+            }, function (response) {
+                console.log('Error : ',response);
+            });
+        }],
+        template:function(elt,scope){
+            return '<div>{{data.target_user_is_private}} - {{data.outgoing_status}} - {{userindex}} - [{{userid}}] - {{userfullname}} / <a href="https://instagram.com/{{username}}/" target="_blank">{{username}}</a></div>';
+        }
+    };
+});
