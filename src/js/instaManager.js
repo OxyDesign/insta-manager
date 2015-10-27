@@ -8,6 +8,14 @@ instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) 
     $scope.token = '';
     $scope.id = '';
 
+    $scope.order = 'outgoing_status';
+    $scope.reverse = false;
+
+    $scope.sort = function(order){
+        $scope.reverse = ($scope.order === order) ? !$scope.reverse : false;
+        $scope.order = order;
+    };
+
     $scope.load = function(){
         if($scope.lastPage || !$scope.token || !$scope.id) return;
 
@@ -32,23 +40,21 @@ instaManager.directive('peopleElt', function(){
     return {
         restrict: 'E',
         scope:{
-            userid:'@',
             userindex:'@',
-            userfullname:'@',
-            username:'@',
-            token:'@'
+            token:'@',
+            people:'='
         },
         controller: ['$scope', '$http', function($scope, $http) {
             $http.jsonp(
-                'https://api.instagram.com/v1/users/'+$scope.userid+'/relationship?access_token='+$scope.token+'&callback=JSON_CALLBACK'
+                'https://api.instagram.com/v1/users/'+$scope.people.id+'/relationship?access_token='+$scope.token+'&callback=JSON_CALLBACK'
             ).then(function (response) {
-                $scope.data = response.data.data;
+                angular.merge($scope.people, response.data.data);
             }, function (response) {
                 console.log('Error : ',response);
             });
         }],
         template:function(elt,scope){
-            return '<div>{{data.target_user_is_private}} - {{data.outgoing_status}} - {{userindex}} - [{{userid}}] - {{userfullname}} / <a href="https://instagram.com/{{username}}/" target="_blank">{{username}}</a></div>';
+            return '<div>{{people.target_user_is_private}} - {{people.outgoing_status}} - {{userindex}} - [{{people.id}}] - {{people.full_name}} / <a href="https://instagram.com/{{people.username}}/" target="_blank">{{people.username}}</a></div>';
         }
     };
 });

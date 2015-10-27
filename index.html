@@ -22,8 +22,9 @@
             <label>
                 Token : <input type="text" placeholder="token" ng-model="token" />
             </label>
+            <button ng-click="sort('outgoing_status')">Sort Status</button>
             <div>
-                <people-elt ng-repeat="people in data" token="{{token}}" userid="{{people.id}}" userindex="{{$index}}" userfullname="{{people.full_name}}" username="{{people.username}}"></people-elt>
+                <people-elt ng-repeat="people in data | orderBy:order:reverse" people="people" token="{{token}}" userindex="{{$index}}"></people-elt>
             </div>
             <button ng-click="load()" ng-show="!lastPage">Load</button>
         </div>
