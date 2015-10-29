@@ -53,8 +53,6 @@ instaManager.directive('peopleElt', function(){
                 console.log('Error : ',response);
             });
         }],
-        template:function(elt,scope){
-            return '<div>{{people.target_user_is_private}} - {{people.outgoing_status}} - {{userindex}} - [{{people.id}}] - {{people.full_name}} / <a href="https://instagram.com/{{people.username}}/" target="_blank">{{people.username}}</a></div>';
-        }
+        templateUrl:'tpl/people.html'
     };
 });
