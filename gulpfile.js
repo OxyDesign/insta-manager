@@ -1,6 +1,14 @@
 var gulp = require('gulp'),
+    connect = require('gulp-connect'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify');
+
+// Server
+gulp.task('webserver', function() {
+  connect.server({
+    root: ['./']
+  });
+});
 
 // Scripts
 gulp.task('scripts', function() {
@@ -12,6 +20,7 @@ gulp.task('scripts', function() {
 
 // Default task
 gulp.task('default', function() {
+  gulp.start('webserver');
   gulp.watch('src/js/*.js', ['scripts']);
 });
 
