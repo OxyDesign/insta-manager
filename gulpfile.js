@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 // Server
 gulp.task('webserver', function() {
   connect.server({
-    root: ['./']
+    root: ['dist/']
   });
 });
 
