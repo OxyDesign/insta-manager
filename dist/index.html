@@ -11,6 +11,13 @@
         label{
             display:block;
         }
+        .header-row{
+            background: #666;
+            color:#eee;
+        }
+        .content-row:nth-child(odd){
+            background: #ddd;
+        }
     </style>
 </head>
 <body>
@@ -24,6 +31,26 @@
             </label>
             <button ng-click="sort('outgoing_status')">Sort Status</button>
             <div>
+                <div class="row header-row" ng-show="data">
+                  <div class="medium-1 columns">
+                    N
+                  </div>
+                  <div class="medium-1 columns">
+                    Img
+                  </div>
+                  <div class="medium-6 columns">
+                    Name
+                  </div>
+                  <div class="medium-2 columns">
+                    id
+                  </div>
+                  <div class="medium-1 columns">
+                    Follows
+                  </div>
+                  <div class="medium-1 columns">
+                    Private
+                  </div>
+                </div>
                 <people-elt ng-repeat="people in data | orderBy:order:reverse" people="people" token="{{token}}" userindex="{{$index}}"></people-elt>
             </div>
             <button ng-click="load()" ng-show="!lastPage">Load</button>

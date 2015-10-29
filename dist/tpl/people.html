@@ -1,1 +1,24 @@
-{{people.target_user_is_private}} - {{people.outgoing_status}} - {{userindex}} - [{{people.id}}] - {{people.full_name}} / <a href="https://instagram.com/{{people.username}}/" target="_blank">{{people.username}}</a>
+<div class="row content-row">
+  <div class="medium-1 columns">
+    {{userindex}}
+  </div>
+  <div class="medium-1 columns">
+    <a href="https://instagram.com/{{people.username}}/" target="_blank">
+      <img ng-src="{{people.profile_picture}}" />
+    </a>
+  </div>
+  <div class="medium-6 columns">
+    <a href="https://instagram.com/{{people.username}}/" target="_blank">
+      {{people.full_name}} ({{people.username}})
+    </a>
+  </div>
+  <div class="medium-2 columns">
+    [{{people.id}}]
+  </div>
+  <div class="medium-1 columns">
+    {{people.outgoing_status}}
+  </div>
+  <div class="medium-1 columns">
+    {{people.target_user_is_private}}
+  </div>
+</div>

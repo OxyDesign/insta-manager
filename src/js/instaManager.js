@@ -38,6 +38,7 @@ instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) 
 
 instaManager.directive('peopleElt', function(){
     return {
+        replace: true,
         restrict: 'E',
         scope:{
             userindex:'@',
