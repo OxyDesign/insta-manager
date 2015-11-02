@@ -58,6 +58,13 @@ instaManager.directive('peopleElt', function(){
             }, function (response) {
                 console.log('Error : ',response);
             });
+            $http.jsonp(
+                'https://api.instagram.com/v1/users/'+$scope.people.id+'/?access_token='+$scope.token+'&callback=JSON_CALLBACK'
+            ).then(function (response) {
+                angular.merge($scope.people, response.data.data);
+            }, function (response) {
+                console.log('Error : ',response);
+            });
         }],
         templateUrl:'tpl/people.html'
     };

@@ -1,19 +1,28 @@
 <div class="row content-row">
-  <div class="medium-1 columns">
-    {{userindex}}
-  </div>
-  <div class="medium-1 columns">
-    <a href="https://instagram.com/{{people.username}}/" target="_blank">
+  <div class="medium-1 columns pic">
+    <a href="https://instagram.com/{{people.username}}/" target="_blank" class="pic-link">
+      <span class="idx">{{userindex}}</span>
       <img ng-src="{{people.profile_picture}}" />
     </a>
   </div>
-  <div class="medium-6 columns">
+  <div class="medium-3 columns">
     <a href="https://instagram.com/{{people.username}}/" target="_blank">
-      {{people.full_name}} ({{people.username}})
+      {{people.full_name}}
     </a>
   </div>
-  <div class="medium-2 columns">
-    [{{people.id}}]
+  <div class="medium-3 columns">
+    <a href="https://instagram.com/{{people.username}}/" target="_blank">
+      ({{people.username}})
+    </a>
+  </div>
+  <div class="medium-1 columns">
+    {{people.counts.media}}
+  </div>
+  <div class="medium-1 columns">
+    {{people.counts.follows}}
+  </div>
+  <div class="medium-1 columns">
+    {{people.counts.followed_by}}
   </div>
   <div class="medium-1 columns">
     {{people[$parent.usertype === 'follows' ? 'incoming_status' : 'outgoing_status']}}

@@ -18,6 +18,22 @@
         .content-row:nth-child(odd){
             background: #ddd;
         }
+        .pic{
+            text-align: left;
+        }
+        .pic-link{
+            display: block;
+            position: relative;
+        }
+        .idx{
+            display: block;
+            position: absolute;
+            bottom:0;
+            right:0;
+            padding:0 5px;
+            color:#fff;
+            text-shadow:1px 1px 2px #000;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +49,7 @@
             </label>
             <div>
                 <div class="row header-row" ng-show="data">
-                    <div class="medium-2 columns">
+                    <div class="medium-1 columns">
                         &nbsp;
                     </div>
                     <div class="medium-3 columns" ng-click="sort('full_name')">
@@ -42,11 +58,17 @@
                     <div class="medium-3 columns" ng-click="sort('username')">
                         User Name
                     </div>
-                    <div class="medium-2 columns" ng-click="sort('id')">
-                        id
+                    <div class="medium-1 columns" ng-click="sort('username')">
+                        posts
+                    </div>
+                    <div class="medium-1 columns" ng-click="sort('username')">
+                        following
+                    </div>
+                    <div class="medium-1 columns" ng-click="sort('username')">
+                        followers
                     </div>
                     <div class="medium-1 columns" ng-click="sort(usertype === 'follows' ? 'incoming_status' : 'outgoing_status')">
-                        State
+                        {{usertype === 'follows' ? 'follows' : 'followed by'}}
                     </div>
                     <div class="medium-1 columns" ng-click="sort('target_user_is_private')">
                         Private
