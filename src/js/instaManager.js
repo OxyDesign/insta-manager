@@ -4,6 +4,7 @@ var instaManager = angular.module('instaManager',[]);
 instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) {
     var url;
     $scope.lastPage = false;
+    $scope.usertype = 'follows';
 
     $scope.token = '';
     $scope.id = '';
@@ -16,12 +17,16 @@ instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) 
         $scope.order = order;
     };
 
+    $scope.reset = function(){
+        $scope.data = null;
+    };
+
     $scope.load = function(){
         if($scope.lastPage || !$scope.token || !$scope.id) return;
 
         if(!$scope.data){
             $scope.data = [];
-            url = 'https://api.instagram.com/v1/users/'+$scope.id+'/followed-by?access_token='+$scope.token;
+            url = 'https://api.instagram.com/v1/users/'+$scope.id+'/'+$scope.usertype+'?access_token='+$scope.token;
         }
 
         $http.jsonp(

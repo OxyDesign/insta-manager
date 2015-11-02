@@ -16,7 +16,7 @@
     [{{people.id}}]
   </div>
   <div class="medium-1 columns">
-    {{people.outgoing_status}}
+    {{people[$parent.usertype === 'follows' ? 'incoming_status' : 'outgoing_status']}}
   </div>
   <div class="medium-1 columns">
     {{people.target_user_is_private}}
