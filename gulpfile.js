@@ -1,7 +1,9 @@
 var gulp = require('gulp'),
     connect = require('gulp-connect'),
     rename = require('gulp-rename'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    sass = require('gulp-sass'),
+    autoprefixer = require('gulp-autoprefixer');
 
 // Server
 gulp.task('webserver', function() {
@@ -18,10 +20,19 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('dist/js/'));
 });
 
+// Styles
+gulp.task('styles', function() {
+  return gulp.src('src/sass/*.scss')
+    .pipe(sass({outputStyle: 'compressed'}))
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('dist/css/'));
+});
+
 // Default task
 gulp.task('default', function() {
   gulp.start('webserver');
   gulp.watch('src/js/*.js', ['scripts']);
+  gulp.watch('src/sass/*.scss', ['styles']);
 });
 
 
