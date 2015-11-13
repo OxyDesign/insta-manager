@@ -28,10 +28,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="medium-6 columns">
-        {{people[$parent.usertype === 'follows' ? 'incoming_status' : 'outgoing_status']}}
+      <div class="medium-6 columns status" ng-class="{'not-follow':people[status] === 'none', 'is-requested':people[status] === 'requested' }">
+        {{people[status]}}
       </div>
-      <div class="medium-6 columns">
+      <div class="medium-6 columns privacy" ng-class="{'is-private':people.target_user_is_private}">
         {{people.target_user_is_private}}
       </div>
     </div>

@@ -17,6 +17,17 @@ label{
         overflow:hidden;
         padding:1rem;
         margin:0.9375rem 0;
+        .status,
+        .privacy{
+            background:green;
+        }
+        .is-requested{
+            background:orange;
+        }
+        .not-follow,
+        .is-private{
+            background:red;
+        }
     }
 }
 .pic{

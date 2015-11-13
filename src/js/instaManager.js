@@ -51,6 +51,7 @@ instaManager.directive('peopleElt', function(){
             people:'='
         },
         controller: ['$scope', '$http', function($scope, $http) {
+            $scope.status = $scope.$parent.usertype === 'follows' ? 'incoming_status' : 'outgoing_status';
             $http.jsonp(
                 'https://api.instagram.com/v1/users/'+$scope.people.id+'/relationship?access_token='+$scope.token+'&callback=JSON_CALLBACK'
             ).then(function (response) {
