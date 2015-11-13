@@ -1,3 +1,6 @@
+body{
+    background:#eee;
+}
 label{
     display:block;
 }
@@ -5,8 +8,16 @@ label{
     background: #666;
     color:#eee;
 }
-.content-row:nth-child(odd){
-    background: #ddd;
+.card-wrapper{
+    &:nth-child(3n+1){
+        clear:both;
+    }
+    .card{
+        background: #fff;
+        overflow:hidden;
+        padding:1rem;
+        margin:0.9375rem 0;
+    }
 }
 .pic{
     text-align: left;

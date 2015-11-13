@@ -20,33 +20,35 @@
             <label>
                 Token : <input type="text" placeholder="token" ng-model="token" />
             </label>
-            <div>
-                <div class="row header-row" ng-show="data">
-                    <div class="medium-1 columns">
-                        &nbsp;
-                    </div>
-                    <div class="medium-3 columns" ng-click="sort('full_name')">
-                        Full Name
-                    </div>
-                    <div class="medium-3 columns" ng-click="sort('username')">
-                        User Name
-                    </div>
-                    <div class="medium-1 columns" ng-click="sort('username')">
-                        posts
-                    </div>
-                    <div class="medium-1 columns" ng-click="sort('username')">
-                        following
-                    </div>
-                    <div class="medium-1 columns" ng-click="sort('username')">
-                        followers
-                    </div>
-                    <div class="medium-1 columns" ng-click="sort(usertype === 'follows' ? 'incoming_status' : 'outgoing_status')">
-                        {{usertype === 'follows' ? 'follows' : 'followed by'}}
-                    </div>
-                    <div class="medium-1 columns" ng-click="sort('target_user_is_private')">
-                        Private
-                    </div>
+            <!--
+            <div class="row header-row" ng-show="data">
+                <div class="medium-1 columns">
+                    &nbsp;
                 </div>
+                <div class="medium-3 columns" ng-click="sort('full_name')">
+                    Full Name
+                </div>
+                <div class="medium-3 columns" ng-click="sort('username')">
+                    User Name
+                </div>
+                <div class="medium-1 columns" ng-click="sort('username')">
+                    posts
+                </div>
+                <div class="medium-1 columns" ng-click="sort('username')">
+                    following
+                </div>
+                <div class="medium-1 columns" ng-click="sort('username')">
+                    followers
+                </div>
+                <div class="medium-1 columns" ng-click="sort(usertype === 'follows' ? 'incoming_status' : 'outgoing_status')">
+                    {{usertype === 'follows' ? 'follows' : 'followed by'}}
+                </div>
+                <div class="medium-1 columns" ng-click="sort('target_user_is_private')">
+                    Private
+                </div>
+            </div>
+            -->
+            <div class="row content-row">
                 <people-elt ng-repeat="people in data | orderBy:order:reverse" people="people" token="{{token}}" userindex="{{$index}}"></people-elt>
             </div>
             <button ng-click="load()" ng-show="!lastPage">Load</button>
