@@ -16,22 +16,30 @@
         </a>
       </div>
     </div>
-    <div class="row">
-      <div class="medium-4 columns">
-        {{people.counts.media}}
-      </div>
-      <div class="medium-4 columns">
-        {{people.counts.follows}}
-      </div>
-      <div class="medium-4 columns">
-        {{people.counts.followed_by}}
-      </div>
+    <div ng-show="people.counts.media" class="row collapse">
+      <ul class="button-group even-3">
+        <li>
+          <span class="tiny button secondary">
+            M : {{people.counts.media}}
+          </span>
+        </li>
+        <li>
+          <span class="tiny button secondary">
+            F : {{people.counts.follows}}
+          </span>
+        </li>
+        <li>
+          <span class="tiny button secondary">
+            By : {{people.counts.followed_by}}
+          </span>
+        </li>
+      </ul>
     </div>
-    <div class="row">
-      <div class="medium-6 columns status" ng-class="{'not-follow':people[status] === 'none', 'is-requested':people[status] === 'requested' }">
+    <div class="row collapse">
+      <div class="button medium-6 columns" ng-show="people[status]" ng-class="{'success':people[status] !== 'none' && people[status] !== 'requested', 'alert':people[status] === 'none', 'secondary':people[status] === 'requested'}">
         {{people[status]}}
       </div>
-      <div class="medium-6 columns privacy" ng-class="{'is-private':people.target_user_is_private}">
+      <div class="button medium-6 columns" ng-show="people.target_user_is_private !== undefined" ng-class="{'secondary':!people.target_user_is_private}">
         {{people.target_user_is_private}}
       </div>
     </div>

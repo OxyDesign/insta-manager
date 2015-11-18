@@ -1,3 +1,6 @@
+$medium: "only screen and (min-width: 40.0625em)";
+$large: "only screen and (min-width: 64.0625em)";
+
 body{
     background:#eee;
 }
@@ -9,25 +12,24 @@ label{
     color:#eee;
 }
 .card-wrapper{
-    &:nth-child(3n+1){
-        clear:both;
+    @media #{$medium} {
+        &:nth-child(2n+1){
+            clear:both;
+        }
+    }
+    @media #{$large} {
+        &:nth-child(2n+1){
+            clear:none;
+        }
+        &:nth-child(3n+1){
+            clear:both;
+        }
     }
     .card{
         background: #fff;
         overflow:hidden;
-        padding:1rem;
+        padding:1rem 1rem 0 1rem;
         margin:0.9375rem 0;
-        .status,
-        .privacy{
-            background:green;
-        }
-        .is-requested{
-            background:orange;
-        }
-        .not-follow,
-        .is-private{
-            background:red;
-        }
     }
 }
 .pic{
