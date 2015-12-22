@@ -7,9 +7,16 @@ body{
 label{
     display:block;
 }
-.header-row{
-    background: #666;
-    color:#eee;
+.search-form{
+    background: #222;
+    color:#ccc;
+    position:fixed;
+    top:0;
+    right:0;
+    left:0;
+}
+.content-row{
+    padding-top:9rem;
 }
 .card-wrapper{
     @media #{$medium} {

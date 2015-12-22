@@ -17,30 +17,32 @@
       </div>
     </div>
     <div ng-show="people.counts.media" class="row collapse">
-      <ul class="button-group even-3">
-        <li>
-          <span class="tiny button secondary">
-            M : {{people.counts.media}}
-          </span>
-        </li>
-        <li>
-          <span class="tiny button secondary">
-            F : {{people.counts.follows}}
-          </span>
-        </li>
-        <li>
-          <span class="tiny button secondary">
-            By : {{people.counts.followed_by}}
-          </span>
-        </li>
-      </ul>
+      <div class="medium-4 columns">
+        <div class="tiny expanded button secondary">
+          M : {{people.counts.media}}
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="tiny expanded button secondary">
+          F : {{people.counts.follows}}
+        </div>
+      </div>
+      <div class="medium-4 columns">
+        <div class="tiny expanded button secondary">
+          By : {{people.counts.followed_by}}
+        </div>
+      </div>
     </div>
     <div class="row collapse">
-      <div class="button medium-6 columns" ng-show="people[status]" ng-class="{'success':people[status] !== 'none' && people[status] !== 'requested', 'alert':people[status] === 'none', 'secondary':people[status] === 'requested'}">
-        {{people[status]}}
+      <div class="medium-6 columns">
+        <div class="expanded button" ng-show="people[status]" ng-class="{'success':people[status] !== 'none' && people[status] !== 'requested', 'alert':people[status] === 'none', 'secondary':people[status] === 'requested'}">
+          {{people[status]}}
+        </div>
       </div>
-      <div class="button medium-6 columns" ng-show="people.target_user_is_private !== undefined" ng-class="{'secondary':!people.target_user_is_private}">
-        {{people.target_user_is_private}}
+      <div class="medium-6 columns">
+        <div class="expanded button" ng-show="people.target_user_is_private !== undefined" ng-class="{'secondary':!people.target_user_is_private}">
+          {{people.target_user_is_private}}
+        </div>
       </div>
     </div>
   </div>
