@@ -13,21 +13,31 @@
         <div ng-controller="mainCtrl">
             <div class="search-form">
                 <div class="row">
-                    <label class="small-6 columns">
+                    <label class="small-6 columns radio-label">
                         <input type="radio" name="usertype" value="follows" ng-model="usertype" ng-change="reset()" /> Follows
                     </label>
-                    <label class="small-6 columns">
+                    <label class="small-6 columns radio-label">
                         <input type="radio" name="usertype" value="followed-by" ng-model="usertype" ng-change="reset()" /> Followed By
                     </label>
                 </div>
                 <div class="row">
-                    <label>
-                        User ID : <input type="text" placeholder="id" ng-model="id" />
-                    </label>
-                    <label>
-                        Token : <input type="text" placeholder="token" ng-model="token" />
-                    </label>
-                    <button ng-click="load()" ng-show="!lastPage" class="clickable">Load</button>
+                    <div class="medium-6 columns">
+                        <label class="input-group">
+                            <span class="input-group-label">ID</span>
+                            <input class="input-group-field" type="text" placeholder="id" ng-model="id" />
+                        </label>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label class="input-group">
+                            <span class="input-group-label">Token</span>
+                            <input class="input-group-field" type="text" placeholder="token" ng-model="token" />
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns">
+                        <button ng-click="load()" ng-show="!lastPage" class="large button clickable">Load<span ng-show="data"> more</span></button>
+                    </div>
                 </div>
             </div>
             <div class="row content-row">

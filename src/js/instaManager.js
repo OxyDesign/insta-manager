@@ -19,6 +19,7 @@ instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) 
 
     $scope.reset = function(){
         $scope.data = null;
+        $scope.lastPage = false;
     };
 
     $scope.load = function(){

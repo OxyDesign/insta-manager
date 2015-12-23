@@ -1,5 +1,5 @@
-$medium: "only screen and (min-width: 40.0625em)";
-$large: "only screen and (min-width: 64.0625em)";
+$medium: "only screen and (min-width: 40em)";
+$large: "only screen and (min-width: 64em)";
 
 body{
     background:#eee;
@@ -21,9 +21,18 @@ a{
     right:0;
     left:0;
     z-index: 1;
+    text-align: center;
+    .radio-label{
+        color:#ccc;
+    }
 }
 .content-row{
-    padding-top:9rem;
+    padding-top:14rem;
+    @media #{$medium} {
+        &{
+            padding-top:11rem;
+        }
+    }
 }
 .card-wrapper{
     @media #{$medium} {
