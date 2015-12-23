@@ -7,6 +7,12 @@ body{
 label{
     display:block;
 }
+a{
+    text-decoration:none;
+}
+.button:not(.clickable){
+    cursor:default;
+}
 .search-form{
     background: #222;
     color:#ccc;
@@ -14,6 +20,7 @@ label{
     top:0;
     right:0;
     left:0;
+    z-index: 1;
 }
 .content-row{
     padding-top:9rem;
@@ -44,6 +51,8 @@ label{
     .pic-link{
         display: block;
         position: relative;
+        overflow: hidden;
+        margin-bottom:1rem;
         .idx{
             display: block;
             position: absolute;

@@ -8,32 +8,30 @@
         </a>
       </div>
       <div class="small-9 columns">
-        <a href="https://instagram.com/{{people.username}}/" target="_blank">
+        <a class="expanded warning button clickable" href="https://instagram.com/{{people.username}}/" target="_blank">
           {{people.full_name}}
-        </a>
-        <a href="https://instagram.com/{{people.username}}/" target="_blank">
           ({{people.username}})
         </a>
       </div>
     </div>
-    <div ng-show="people.counts.media" class="row collapse">
-      <div class="medium-4 columns">
-        <div class="tiny expanded button secondary">
+    <div ng-show="people.counts.media" class="row">
+      <div class="small-4 columns">
+        <div class="tiny expanded button secondary" title="Media">
           M : {{people.counts.media}}
         </div>
       </div>
-      <div class="medium-4 columns">
-        <div class="tiny expanded button secondary">
+      <div class="small-4 columns">
+        <div class="tiny expanded button secondary" title="Follows">
           F : {{people.counts.follows}}
         </div>
       </div>
-      <div class="medium-4 columns">
-        <div class="tiny expanded button secondary">
+      <div class="small-4 columns">
+        <div class="tiny expanded button secondary" title="Followed By">
           By : {{people.counts.followed_by}}
         </div>
       </div>
     </div>
-    <div class="row collapse">
+    <div class="row">
       <div class="medium-6 columns">
         <div class="expanded button" ng-show="people[status]" ng-class="{'success':people[status] !== 'none' && people[status] !== 'requested', 'alert':people[status] === 'none', 'secondary':people[status] === 'requested'}">
           {{people[status]}}
