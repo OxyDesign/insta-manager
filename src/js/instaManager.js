@@ -53,6 +53,11 @@ instaManager.directive('peopleElt', function(){
         },
         controller: ['$scope', '$http', function($scope, $http) {
             $scope.status = $scope.$parent.usertype === 'follows' ? 'incoming_status' : 'outgoing_status';
+
+            $scope.format = function(str){
+                return !str ? '' : str.split('_').map(function(s){return s[0] ? s[0].toUpperCase() + s.substr(1) : ''}).join(' ')
+            };
+
             $http.jsonp(
                 'https://api.instagram.com/v1/users/'+$scope.people.id+'/relationship?access_token='+$scope.token+'&callback=JSON_CALLBACK'
             ).then(function (response) {
@@ -60,6 +65,7 @@ instaManager.directive('peopleElt', function(){
             }, function (response) {
                 console.log('Error : ',response);
             });
+
             $http.jsonp(
                 'https://api.instagram.com/v1/users/'+$scope.people.id+'/?access_token='+$scope.token+'&callback=JSON_CALLBACK'
             ).then(function (response) {

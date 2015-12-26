@@ -34,12 +34,12 @@
     <div class="row">
       <div class="medium-6 columns">
         <div class="expanded button" ng-show="people[status]" ng-class="{'success':people[status] !== 'none' && people[status] !== 'requested', 'alert':people[status] === 'none', 'secondary':people[status] === 'requested'}">
-          {{people[status]}}
+          {{format(people[status])}}
         </div>
       </div>
       <div class="medium-6 columns">
         <div class="expanded button" ng-show="people.target_user_is_private !== undefined" ng-class="{'secondary':!people.target_user_is_private}">
-          {{people.target_user_is_private}}
+          {{people.target_user_is_private ? 'Private' : 'Public'}}
         </div>
       </div>
     </div>
