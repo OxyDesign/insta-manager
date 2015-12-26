@@ -2,7 +2,9 @@
 <html lang="en" ng-app="instaManager">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Instagram Manager</title>
+    <meta name="theme-color" content="#2A5B83">
     <link rel="stylesheet" href="libs/foundation.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="libs/angular.min.js"></script>
@@ -21,13 +23,13 @@
                     </label>
                 </div>
                 <div class="row">
-                    <div class="medium-6 columns">
+                    <div class="small-6 columns">
                         <label class="input-group">
                             <span class="input-group-label">ID</span>
                             <input class="input-group-field" type="text" placeholder="id" ng-model="id" />
                         </label>
                     </div>
-                    <div class="medium-6 columns">
+                    <div class="small-6 columns">
                         <label class="input-group">
                             <span class="input-group-label">Token</span>
                             <input class="input-group-field" type="text" placeholder="token" ng-model="token" />
@@ -36,7 +38,28 @@
                 </div>
                 <div class="row">
                     <div class="columns">
-                        <button ng-click="load()" ng-disabled="lastPage" class="large button clickable">Load<span ng-show="data"> more</span></button>
+                        <button ng-click="load()" ng-disabled="lastPage" class="small button clickable">Load<span ng-show="data"> more</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-form">
+                <div class="row">
+                    <div class="small-12 columns">
+                        Filters
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-3 columns">
+                        <button ng-click="sort('username')" ng-disabled="!data" class="tiny expanded button clickable">Username</button>
+                    </div>
+                    <div class="small-3 columns">
+                        <button ng-click="sort('full_name')" ng-disabled="!data" class="tiny expanded button clickable">Fullname</button>
+                    </div>
+                    <div class="small-3 columns">
+                        <button ng-click="sort(usertype === 'follows' ? 'incoming_status' : 'outgoing_status')" ng-disabled="!data" class="tiny expanded button clickable">Following</button>
+                    </div>
+                    <div class="small-3 columns">
+                        <button ng-click="sort('target_user_is_private')" ng-disabled="!data" class="tiny expanded button clickable">Private</button>
                     </div>
                 </div>
             </div>

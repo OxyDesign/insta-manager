@@ -26,13 +26,18 @@ a{
         color:#ccc;
     }
 }
+.filter-form{
+    background: #222;
+    color:#ccc;
+    position:fixed;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index: 1;
+    text-align: center;
+}
 .content-row{
-    padding-top:14rem;
-    @media #{$medium} {
-        &{
-            padding-top:11rem;
-        }
-    }
+    padding:10rem 0 5rem;
 }
 .card-wrapper{
     @media #{$medium} {

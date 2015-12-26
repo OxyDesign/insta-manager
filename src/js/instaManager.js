@@ -3,14 +3,17 @@ var instaManager = angular.module('instaManager',[]);
 
 instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) {
     var url;
-    $scope.lastPage = false;
+
     $scope.usertype = 'follows';
+
+    $scope.data = null;
+    $scope.lastPage = false;
+    $scope.order = false;
+    $scope.reverse = false;
 
     $scope.token = '';
     $scope.id = '';
 
-    $scope.order = 'outgoing_status';
-    $scope.reverse = false;
 
     $scope.sort = function(order){
         $scope.reverse = ($scope.order === order) ? !$scope.reverse : false;
@@ -20,6 +23,8 @@ instaManager.controller('mainCtrl', ['$scope', '$http', function($scope, $http) 
     $scope.reset = function(){
         $scope.data = null;
         $scope.lastPage = false;
+        $scope.order = false;
+        $scope.reverse = false;
     };
 
     $scope.load = function(){
