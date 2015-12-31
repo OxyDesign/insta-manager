@@ -79,6 +79,6 @@ instaManager.directive('peopleElt', function(){
                 console.log('Error : ',response);
             });
         }],
-        templateUrl:'tpl/people.html'
+        templateUrl:'dist/tpl/people.html'
     };
 });
